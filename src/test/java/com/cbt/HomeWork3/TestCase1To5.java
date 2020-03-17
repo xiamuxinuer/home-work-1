@@ -71,7 +71,7 @@ public void TestCase4() throws InterruptedException {
 }
 
 @Test
-public void TestCas5() throws InterruptedException {
+public void TestCase5() throws InterruptedException {
         driver.findElement(By.name("firstname")).sendKeys("emma");
         driver.findElement(By.name("lastname")).sendKeys("xiao");
         driver.findElement(By.name("username")).sendKeys("cybertek");
