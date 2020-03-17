@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TestCase1To5 {
-    WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void SetUp() throws InterruptedException {
@@ -22,13 +22,14 @@ public class TestCase1To5 {
         driver=new ChromeDriver();
 
         driver.get("https://practice-cybertekschool.herokuapp.com");
+        driver.manage().window().maximize();
         Thread.sleep(3000);
 
         driver.findElement(By.linkText("Registration Form")).click();
         Thread.sleep(3000);
     }
 
-@Test(description = "Verify that warning message is displayed")
+@Test
     public void TestCase1(){
         driver.findElement(By.cssSelector("input[name='birthday']")).sendKeys("wrong_dob");
         WebElement message= driver.findElement(By.xpath("//*[@id=\"registrationForm\"]/div[8]/div/small[2]"));
@@ -98,11 +99,6 @@ Thread.sleep(3000);
         Thread.sleep(2000);
         driver.quit();
 }
-
-
-
-
-
 
 
 }
