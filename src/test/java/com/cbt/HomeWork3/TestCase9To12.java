@@ -31,7 +31,7 @@ public class TestCase9To12 {
         Thread.sleep(3000);
            String text = driver.findElement(By.tagName("p")).getText();
 
-           String firstText = text.substring(0, text.indexOf(" "));
+           String firstText = text.substring(0, text.indexOf("\n"));
            System.out.println(firstText);
 
 
@@ -43,7 +43,7 @@ public class TestCase9To12 {
         Thread.sleep(3000);
         String text = driver.findElement(By.tagName("p")).getText();
 
-        String firstText = text.substring(0, text.indexOf(" "));
+        String firstText = text.substring(0, text.indexOf("\n"));
         System.out.println(firstText);
     }
 
@@ -54,7 +54,7 @@ public class TestCase9To12 {
         Thread.sleep(3000);
         String text = driver.findElement(By.tagName("p")).getText();
 
-        String firstText = text.substring(0, text.indexOf(" "));
+        String firstText = text.substring(0, text.indexOf("\n"));
         System.out.println(firstText);
     }
 
@@ -65,7 +65,7 @@ public class TestCase9To12 {
         Thread.sleep(3000);
         String text = driver.findElement(By.tagName("p")).getText();
 
-        String firstText = text.substring(0, text.indexOf(" "));
+        String firstText = text.substring(0, text.indexOf("\n"));
         System.out.println(firstText);
     }
 
