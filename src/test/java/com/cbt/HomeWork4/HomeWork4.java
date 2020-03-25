@@ -2,6 +2,7 @@ package com.cbt.HomeWork4;
 
 import com.cbt.utilities.BrowserFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -104,7 +105,46 @@ public class HomeWork4 {
 }
 
    @Test
-   public void mainDepartments(){
+   public void mainDepartments() {
+       driver.get("https://www.amazon.com/gp/site-directory");
+       Select dropdownBox = new Select(driver.findElement(By.id("searchDropdownBox")));
+       List<WebElement> allOptions = dropdownBox.getOptions();
+       List<WebElement> mainDepartmentsNameList = driver.findElements(By.tagName("h2"));
+       for (WebElement eachDepartment : mainDepartmentsNameList) {
+           Assert.assertTrue(allOptions.contains(eachDepartment));
+       }
+   }
+@Test
+    public void links() {
+    driver.get("https://www.w3schools.com");
+    List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+
+    for (WebElement eachLink : allLinks) {
+        if (eachLink.isDisplayed()) {
+            System.out.println(eachLink.getText());
+            System.out.println(eachLink.getAttribute("href"));
+        }
+    }
+}
+
+@Test
+        public void validLinks(){
+        driver.get("https://www.selenium.dev/documentation/en/");
+        List<WebElement> allLinks= driver.findElements(By.tagName("a"));
+        for (WebElement eachLink:allLinks){
+            Assert.assertTrue(eachLink.isEnabled());
+        }
+    }
+
+    @Test
+    public void cart() throws InterruptedException {
+        driver.get("https://amazon.com");
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon", Keys.ENTER);
+        driver.manage().window().maximize();
+
+
+
+
 
 
     }
@@ -125,15 +165,10 @@ public class HomeWork4 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
