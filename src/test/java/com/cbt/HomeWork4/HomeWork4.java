@@ -139,8 +139,30 @@ public class HomeWork4 {
     @Test
     public void cart() throws InterruptedException {
         driver.get("https://amazon.com");
-        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon", Keys.ENTER);
         driver.manage().window().maximize();
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon", Keys.ENTER);
+        Thread.sleep(3000);
+        WebElement name=driver.findElement(By.linkText("OXO 1130880 Good Grips Wooden Corner Spoon & Scraper,Brown"));
+        String nameText=name.getText();
+
+
+//        WebElement price=driver.findElement(By.xpath("//*[@id=\"anonCarousel1\"]/ol/li[1]/div/div/div[4]/div/div/a/span/span[1]"));
+//        String priceText=price.getText();
+        name.click();
+        Thread.sleep(2000);
+
+        String productTitle=driver.findElement(By.id("productTitle")).getText();
+        Assert.assertEquals(nameText,productTitle);
+
+
+        String productPrice=driver.findElement(By.id("priceblock_ourprice")).getText();
+
+
+
+
+        WebElement addCartButton=driver.findElement(By.id("add-to-cart-button"));
+        Assert.assertTrue(addCartButton.isDisplayed());
+
 
 
 
