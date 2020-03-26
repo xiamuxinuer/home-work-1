@@ -19,7 +19,7 @@ import java.util.List;
 
 public class HomeWork4 {
     WebDriver  driver;
-    WebDriverWait wait;
+
 
     @BeforeMethod
     public void setUp(){
@@ -183,7 +183,30 @@ public class HomeWork4 {
 
 }
 
+@Test
+    public void moreSpoon() throws InterruptedException {
+        driver.get("https://amazon.com");
+    driver.manage().window().maximize();
+    driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon", Keys.ENTER);
+    Thread.sleep(3000);
+    List<WebElement> allBrands=driver.findElements(By.xpath("//*[@id=\"brandsRefinements\"]/ul/li/span"));
+    String brandName="";
+    for (WebElement eachBrand:allBrands){
+      brandName+=eachBrand.getText()+",";
+    }
+    WebElement primeCheckBox=driver.findElement(By.xpath("//*[@id=\"p_85/2470955011\"]/span/a/div/label/i"));
+    primeCheckBox.click();
+    Thread.sleep(3000);
 
+
+    List<WebElement> primeAllBrands=driver.findElements(By.xpath("//*[@id=\"brandsRefinements\"]/ul/li/span"));
+    String primeBrandName="";
+    for (WebElement eachBrand:primeAllBrands){
+        primeBrandName+=eachBrand.getText()+",";
+    }
+
+    Assert.assertEquals(brandName,primeBrandName);
+}
 
 
 
