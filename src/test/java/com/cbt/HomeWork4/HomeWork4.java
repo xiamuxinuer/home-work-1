@@ -223,11 +223,9 @@ public class HomeWork4 {
 
     for (WebElement eachPrice: allPrice){
         System.out.println(eachPrice.getText());
+        Assert.assertTrue(Integer.parseInt(eachPrice.getText())<25);
     }
-
-
 }
-
 
 
 
