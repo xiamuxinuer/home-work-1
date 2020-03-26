@@ -161,7 +161,25 @@ public class HomeWork4 {
     }
 
 @Test
-    public void prime(){
+    public void prime() throws InterruptedException {
+    driver.get("https://amazon.com");
+    driver.manage().window().maximize();
+    driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon", Keys.ENTER);
+    Thread.sleep(3000);
+    String firstProductName=driver.findElement(By.linkText("HANSGO Small Wooden Spoons, 6PCS Small Soup Spoons Serving Spoons Wooden Teaspoon for Coffee Tea Jam Bath Salts, 5\"")).getText();
+    WebElement primeCheckBox=driver.findElement(By.xpath("//*[@id=\"p_85/2470955011\"]/span/a/div/label/i"));
+    Thread.sleep(3000);
+    primeCheckBox.click();
+    Thread.sleep(5000);
+
+
+    WebElement firstPrimeProductName=driver.findElement(By.linkText("HANSGO Small Wooden Spoons, 6PCS Small Soup Spoons Serving Spoons Wooden Teaspoon for Coffee Tea Jam Bath Salts, 5\""));
+    Assert.assertEquals(firstProductName,firstPrimeProductName.getText());
+
+
+    driver.findElement(By.xpath("//*[@id=\"p_89/Folkulture\"]/span/a/div/label/i")).click();
+    WebElement newFirstProductName=driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[2]/div/span[4]/div[1]/div[1]/div/span/div/div/div[2]/h2"));
+    Assert.assertEquals(newFirstProductName.getText(),firstProductName);
 
 }
 
