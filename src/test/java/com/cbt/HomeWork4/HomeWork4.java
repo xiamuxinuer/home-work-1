@@ -202,14 +202,31 @@ public class HomeWork4 {
     List<WebElement> primeAllBrands=driver.findElements(By.xpath("//*[@id=\"brandsRefinements\"]/ul/li/span"));
     String primeBrandName="";
     for (WebElement eachBrand:primeAllBrands){
-        primeBrandName+=eachBrand.getText()+",";
+       Assert.assertTrue(eachBrand.isDisplayed());
+            primeBrandName+=eachBrand.getText()+",";
+
     }
 
     Assert.assertEquals(brandName,primeBrandName);
 }
 
+@Test
+    public void cheapSpoons() throws InterruptedException {
+    driver.get("https://amazon.com");
+    driver.manage().window().maximize();
+    driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon", Keys.ENTER);
+    Thread.sleep(3000);
+
+    driver.findElement(By.id("p_36/1253523011")).click();
+    Thread.sleep(3000);
+    List<WebElement> allPrice= driver.findElements(By.xpath("//*[@id=\"search\"]/div/div/div/span/div/div/div/span/div/div/div/div/div[4]/div/div/a/span/span[1]"));
+
+    for (WebElement eachPrice: allPrice){
+        System.out.println(eachPrice.getText());
+    }
 
 
+}
 
 
 
