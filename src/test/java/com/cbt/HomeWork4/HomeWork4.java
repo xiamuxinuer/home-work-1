@@ -154,24 +154,16 @@ public class HomeWork4 {
         String productTitle=driver.findElement(By.id("productTitle")).getText();
         Assert.assertEquals(nameText,productTitle);
 
-
         String productPrice=driver.findElement(By.id("priceblock_ourprice")).getText();
-
-
-
 
         WebElement addCartButton=driver.findElement(By.id("add-to-cart-button"));
         Assert.assertTrue(addCartButton.isDisplayed());
-
-
-
-
-
-
-
     }
 
+@Test
+    public void prime(){
 
+}
 
 
 
