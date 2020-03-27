@@ -99,7 +99,7 @@ public class HomeWork4 {
         System.out.println(allOptions.get(i).getText());
         String option1 = allOptions.get(i).getText();
         String option2 = allOptions.get(i + 1).getText();
-        Assert.assertTrue(option1.charAt(0) < option2.charAt(0));
+        Assert.assertTrue(option1.charAt(0) > option2.charAt(0));
 
     }
 }
