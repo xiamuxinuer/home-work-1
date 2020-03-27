@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 public class VehicleModelAccess {
     WebDriver driver;
 
+
     @BeforeMethod
     public void setUp() throws InterruptedException {
         driver= BrowserFactory.getDriver("chrome");
